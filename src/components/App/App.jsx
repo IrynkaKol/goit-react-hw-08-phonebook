@@ -1,115 +1,54 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from '../../redux/operations';
+import { useEffect, lazy, Suspense } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { Navigation } from '../Navigation/Navigation';
+import { PrivateRoute } from '../PrivateRoute';
+import { RestrictedRoute } from '../RestrictedRoute';
+//import { refreshUser } from 'redux/auth/operations';
+import { useAuth } from 'hooks';
 
-import { Container } from './App.styled';
-import ContactForm from '../ContactForm/ContactForm';
-import ContactList from '../ContactList/ContactList';
-import Filter from '../Filter/Filter';
-import Section from '../Section/Section';
-import { selectError, selectIsLoading } from 'redux/selector';
+const HomePage = lazy(() => import('../../pages/Home'));
+const RegisterPage = lazy(() => import('../../pages/Register'));
+const LoginPage = lazy(() => import('../../pages/Login'));
+const ContactsPage = lazy(() => import('../../pages/Contacts'));
 
-export function App() {
+export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const { isRefreshing } = useAuth();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  //useEffect(() => {
+  //  dispatch(refreshUser());
+  //}, [dispatch]);
 
-  return (
-    <Container>
-      <Section title="Phonebook">
-        <ContactForm />
-      </Section>
-      <Section title="Contacts">
-        <Filter />
-        {isLoading && !error && <b>Request in progress...</b>}
-        <ContactList />
-      </Section>
-    </Container>
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
+    <Suspense fallback={
+      <h1>Loading...</h1>
+    }>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute redirectTo="/tasks" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/tasks" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/tasks"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+      </Route>
+    </Routes>
+    </Suspense>
   );
-}
-
-/*
-export class OldApp extends Component {
-  state = {
-    contacts: [],
-    filter: '',
-  };
-
-  formSubmitHendler = data => {
-    const contact = {
-      id: nanoid(),
-      name: data.name,
-      number: data.number,
-    };
-    if (
-      !this.state.contacts.find(
-        ({ name }) => name.toLowerCase() === data.name.toLowerCase()
-      )
-    ) {
-      this.setState(prevState => ({
-        contacts: [contact, ...prevState.contacts],
-      }));
-    } else {
-      alert(`${data.name} is already in contacts.`);
-    }
-    //console.log(data);
-    //console.log(contact);
-  };
-
-  deleteContacts = e => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== e),
-    }));
-  };
-
-  changeFilter = e => {
-    this.setState({ filter: e.currentTarget.value });
-  };
-
-  getVisibleContacts = () => {
-    const normalizedFilter = this.state.filter.toLowerCase();
-    return this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
-  };
-
-  componentDidMount() {
-    console.log('App component DidMount');
-    const contacts = localStorage.getItem('contacts');
-    const parseContacts = JSON.parse(contacts);
-    if (parseContacts) {
-      this.setState({ contacts: parseContacts });
-    }
-    //console.log(parseContacts)
-  }
-  componentDidUpdate(_, prevState) {
-    console.log('App component DidUpdate');
-    if (this.state.contacts !== prevState.contacts) {
-      console.log('Оновились контакти, записуємо їх до сховища');
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-    }
-    
-
-  render() {
-    const visibleContacts = this.getVisibleContacts();
-    return (
-      <Container>
-        <Section title="Phonebook">
-          <ContactForm onSubmit={this.formSubmitHendler} />
-        </Section>
-        <Section title="Contacts">
-          <Filter value={this.state.filter} onChange={this.changeFilter} />
-          <ContactList
-            contacts={visibleContacts}
-            onDeleteContacts={this.deleteContacts}
-          />
-        </Section>
-      </Container>
-    );
-  }
-}*/
+};
