@@ -3,7 +3,6 @@ import {
   List,
   Item,
   Contact,
-  Avatar,
   Wrapper,
   Button,
 } from './ContactList.styled';
@@ -31,10 +30,9 @@ function ContactList() {
 
   return (
     <List>
-      {getVisibleContacts().map(({ id, name, number, avatar }) => (
+      {getVisibleContacts().map(({ id, name, number }) => (
         <Item key={id}>
           <Contact>
-            <Avatar width={50} src={avatar} alt="avatar" />
             <Wrapper>
               <span>{name}: </span>
               <br />
