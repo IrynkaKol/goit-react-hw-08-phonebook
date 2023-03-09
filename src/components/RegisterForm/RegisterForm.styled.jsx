@@ -1,5 +1,6 @@
 export const RegisterForm = () => {
-    return (<form>
+    return (
+    <form>
         <label>
           Username
           <input type="text" name="name" />
@@ -13,6 +14,7 @@ export const RegisterForm = () => {
           <input type="password" name="password"/>
         </label>
         <button type="submit"> Register</button>
-      </form>;)
+      </form>
+      )
   
 };
