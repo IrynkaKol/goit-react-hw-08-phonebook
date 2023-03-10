@@ -1,8 +1,8 @@
-import { useEffect, lazy } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 //import { Navigation } from '../Navigation/Navigation';
-import { PrivateRoute } from '../PrivateRoute';
+//import { PrivateRoute } from '../PrivateRoute';
 import { RestrictedRoute } from '../RestrictedRoute';
 
 import { useAuth } from 'hooks';
@@ -22,34 +22,16 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <b>Refreshing user...</b>
-  ) : (
+  return (
+    <Suspense>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute
-              redirectTo="/contacts"
-              component={<RegisterPage />}
-            />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
-          }
-        />
-        <Route
-          path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
-          }
-        />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
       </Route>
     </Routes>
+    </Suspense>
   );
 };
