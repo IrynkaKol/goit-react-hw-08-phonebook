@@ -5,9 +5,11 @@ import { Route, Routes } from 'react-router-dom';
 import { PrivateRoute } from '../PrivateRoute';
 import { RestrictedRoute } from '../RestrictedRoute';
 
+
 import { useAuth } from 'hooks';
 import { refreshUser } from 'redux/auth/operations';
 import { Layout } from 'components/Layout';
+import { Suspense } from 'react';
 
 const HomePage = lazy(() => import('../../pages/Home'));
 const RegisterPage = lazy(() => import('../../pages/Register'));
@@ -24,7 +26,7 @@ export const App = () => {
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
-  ) : (
+  ) : (<Suspense fallback={<h1>Loading ...</h1>}>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -51,5 +53,6 @@ export const App = () => {
         />
       </Route>
     </Routes>
+    </Suspense>
   );
 };
