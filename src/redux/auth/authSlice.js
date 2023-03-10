@@ -9,10 +9,12 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
   },
-  extraReducers: builder => {
-    builder.addCase(register.fulfilled, (state, action) => {
-      state.token = action.payload.token;
-    });
-  },
+  extraReducers: builder => 
+    builder
+    .addCase(register.pending, (state, action) => state)
+    .addCase(register.fulfilled, (state, action) => state)
+    .addCase(register.rejected, (state,action) => state )
+    
+  
 });
 export const authReducer = authSlice.reducer;

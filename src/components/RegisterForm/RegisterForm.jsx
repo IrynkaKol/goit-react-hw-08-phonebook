@@ -1,20 +1,23 @@
+import { Form, Label } from "./RegisterForm.styled";
+
+
 export const RegisterForm = () => {
     return (
-    <form>
-        <label>
+    <Form>
+        <Label>
           Username
           <input type="text" name="name" />
-        </label>
-        <label type="email" name="email">
+        </Label>
+        <Label type="email" name="email">
           Email
           <input />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Password
           <input type="password" name="password"/>
-        </label>
+        </Label>
         <button type="submit"> Register</button>
-      </form>
+      </Form>
       )
   
 };

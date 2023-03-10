@@ -1,15 +1,18 @@
+import { Form, Label } from "./LoginForm.styled";
+
+
 export const LoginForm = () => {
   return (
-    <form autoComplete="off">
-      <label>
+    <Form autoComplete="off">
+      <Label>
         Email
         <input type="email" name="email" />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Password
         <input type="password" name="password" />
-      </label>
+      </Label>
       <button type="submit">Log In</button>
-    </form>
+    </Form>
   );
 };
