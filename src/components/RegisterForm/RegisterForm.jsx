@@ -25,9 +25,9 @@ export const RegisterForm = () => {
         Username
         <input type="text" name="name" />
       </Label>
-      <Label type="email" name="email">
+      <Label >
         Email
-        <input />
+        <input type="email" name="email"/>
       </Label>
       <Label>
         Password
