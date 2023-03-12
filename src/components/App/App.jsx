@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 //import { Navigation } from '../Navigation/Navigation';
-//import { PrivateRoute } from '../PrivateRoute';
+import { PrivateRoute } from '../PrivateRoute';
 import { RestrictedRoute } from '../RestrictedRoute';
 
 import { useAuth } from 'hooks';
@@ -45,7 +45,12 @@ export const App = () => {
               <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
             }
           />
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute component={ContactsPage} redirectTo="/login" />
+            }
+          />
         </Route>
       </Routes>
     </Suspense>
