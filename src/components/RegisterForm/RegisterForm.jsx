@@ -20,7 +20,9 @@ export const RegisterForm = () => {
   };
 
   return (
+    
     <Form onSubmit={handleSubmit} autoComplete="off">
+      <div>Register on Phonebook</div>
       <Label>
         Username
         <input type="text" name="name" />
