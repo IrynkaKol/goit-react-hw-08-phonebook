@@ -1,4 +1,7 @@
 import React from 'react';
+import { AiFillPhone, AiTwotoneDelete } from 'react-icons/ai';
+import { BsPersonCircle } from 'react-icons/bs';
+
 import {
   List,
   Item,
@@ -33,8 +36,9 @@ function ContactList() {
       {getVisibleContacts().map(({ id, name, number }) => (
         <Item key={id}>
           <Contact>
+            <BsPersonCircle size="25" color="#1E90FF"/>
             <Wrapper>
-              <span>{name}: </span>
+              <span> <AiFillPhone/> {name}: </span>
               <br />
               <span>{number} </span>
             </Wrapper>
