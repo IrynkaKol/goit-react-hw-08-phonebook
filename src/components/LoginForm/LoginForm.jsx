@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import {Link} from 'react-router-dom'
 //import { Form } from './LoginForm.styled';
 import {
   Box,
@@ -14,7 +15,7 @@ import {
   Stack,
   CardBody,
   Text,
-  Link,
+  
   Center,
 } from '@chakra-ui/react';
 import { PhonebookLogo } from 'phonebook-logo';
@@ -36,7 +37,7 @@ export const LoginForm = () => {
     <Box>
       <Center>
         <Stack spacing="4">
-          <VStack as="header" spacing="6" mt="8">
+          <VStack as="h1" spacing="6" mt="8">
             <PhonebookLogo />
             <Heading
               as="h1"
@@ -112,9 +113,9 @@ export const LoginForm = () => {
             <CardBody>
               <Center>
                 <HStack fontSize="sm" spacing="1">
-                  <Text>New to Phonebook</Text>
-                  <Link to="/register" color="#0969da"  >
-                    Create an account,
+                  <Text>New to Phonebook? </Text>
+                  <Link style={{ color: 'blue' }} to="/register">
+                    Create an account.
                   </Link>
                 </HStack>
               </Center>
