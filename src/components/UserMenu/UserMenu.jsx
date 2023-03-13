@@ -15,7 +15,7 @@ export const UserMenu = () => {
     <div>
       <p>Welcome, {user.name}</p>
       <p>{user.email}</p>
-      <Button type="button " onClick={handleLogOut}>Logout</Button>
+      <Button type="button " onClick={handleLogOut}></Button>
     </div>
   );
 };
