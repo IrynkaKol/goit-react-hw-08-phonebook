@@ -113,7 +113,7 @@ export const LoginForm = () => {
               <Center>
                 <HStack fontSize="sm" spacing="1">
                   <Text>New to Phonebook</Text>
-                  <Link isExternal color="#0969da" href="#">
+                  <Link to="/register" color="#0969da"  >
                     Create an account,
                   </Link>
                 </HStack>
