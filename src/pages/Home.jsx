@@ -1,9 +1,21 @@
+import { Box, Center, VStack, Heading } from '@chakra-ui/react';
+
 export default function Home() {
   return (
-    <div>
-      <h1>
-      Create your own Phone book
-      </h1>
-    </div>
+    <Box>
+      <Center>
+        <VStack>
+           <Heading
+            as="h1"
+            backgroundImage="conic-gradient(rgb(85, 60, 154), rgb(238, 75, 43), rgb(0, 194, 203), rgb(85, 60, 154))"
+            color="transparent"
+            backgroundClip="text"
+            textAlign = 'center'
+          >
+            Create your own Phone book
+          </Heading>
+        </VStack>
+      </Center>
+    </Box>
   );
 }

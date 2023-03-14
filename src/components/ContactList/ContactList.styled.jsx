@@ -16,12 +16,7 @@ export const Item = styled.li`
   }
 `;
 
-export const Avatar = styled.img`
-  border-radius: 50%;
-  display: block;
-  max-width: 100%;
-  height: auto;
-`;
+
 export const Contact = styled.div`
   font-size: 15px;
   display: flex;
