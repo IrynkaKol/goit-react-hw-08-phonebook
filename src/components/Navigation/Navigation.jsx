@@ -14,12 +14,15 @@ export const Navigation = () => {
     >
       <nav>
         <NavLink to="/">
-          <Box display="flex" mt="2" alignItems="center">
+          <Box display="flex" mt="2" alignItems="center" gap="10px">
             <PhonebookLogo />
             <Heading as="h1"
-            fontWeight="300"
+            fontWeight="600"
             fontSize="24px"
-            
+            backgroundImage='linear-gradient(to bottom left, #ff00ff, #00bfff)'
+            color="transparent"
+            backgroundClip="text"
+            textAlign = 'center'
             >Phonebook</Heading>
           </Box>
         </NavLink>
