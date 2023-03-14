@@ -9,6 +9,7 @@ import { useAuth } from 'hooks';
 import { refreshUser } from 'redux/auth/operations';
 import { Layout } from 'components/Layout';
 import { useEffect } from 'react';
+import { Spinner } from '@chakra-ui/react';
 
 const HomePage = lazy(() => import('../../pages/Home'));
 const RegisterPage = lazy(() => import('../../pages/Register'));
@@ -24,7 +25,13 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    'Fetch user data...'
+    <Spinner
+  thickness='4px'
+  speed='0.65s'
+  emptyColor='gray.200'
+  color='blue.500'
+  size='xl'
+/>
   ) : (
     <Suspense>
       <Routes>
