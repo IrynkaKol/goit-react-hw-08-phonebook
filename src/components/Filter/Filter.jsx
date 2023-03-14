@@ -10,21 +10,19 @@ const Filter = () => {
   const filter = useSelector(selectStatusFilter);
 
   const handleChange = e => {
-    dispatch(setFilterValue(e.target.value))
-  }
+    dispatch(setFilterValue(e.target.value));
+  };
 
   return (
     <Label>
       Find contacts by name
       <Input
         type="text"
-        name='filter'
-        placeholder='Enter filter'
+        name="filter"
+        placeholder="Enter filter"
         value={filter}
         onChange={handleChange}
       />
-
-    
     </Label>
   );
 };

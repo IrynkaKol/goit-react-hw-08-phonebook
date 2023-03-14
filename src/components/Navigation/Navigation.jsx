@@ -1,28 +1,25 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
 import { PhonebookLogo } from 'phonebook-logo';
-import {Flex} from '@chakra-ui/react';
+import { Flex, Box } from '@chakra-ui/react';
 
 export const Navigation = () => {
-    const { isLoggedIn } = useAuth();
-  
-    return (
-      <Flex 
-      justifyContent = "space-between"
+  const { isLoggedIn } = useAuth();
+
+  return (
+    <Flex
+      justifyContent="space-between"
       alignItems="center"
-      marginBottom="16px">
+      marginBottom="16px"
+    >
       <nav>
         <NavLink to="/">
-          
-        <PhonebookLogo/>
-        
+          <Box display="flex" mt="2" alignItems="center">
+            <PhonebookLogo />
+          </Box>
         </NavLink>
-        {isLoggedIn && (
-          <NavLink to="/contacts">
-            Contacts
-          </NavLink>
-        )}
+        {isLoggedIn && <NavLink style={{color: 'blue'}} to="/contacts">Contacts</NavLink>}
       </nav>
-      </Flex>
-    );
-  };
+    </Flex>
+  );
+};
