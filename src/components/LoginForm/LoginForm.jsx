@@ -97,11 +97,11 @@ export const LoginForm = () => {
                   </FormControl>
                   <Button
                     type="submit"
-                    bg="#2da44e"
+                    bg="#7b68ee"
                     color="white"
                     size="sm"
-                    _hover={{ bg: '#2c974b' }}
-                    _active={{ bg: '#298e46' }}
+                    _hover={{ bg: '#8a2be2' }}
+                    _active={{ bg: '#9932cc' }}
                   >
                     Sign in
                   </Button>

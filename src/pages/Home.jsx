@@ -12,7 +12,7 @@ export default function Home() {
             backgroundClip="text"
             textAlign = 'center'
           >
-            Create your own Phone book
+            Create your own Phonebook
           </Heading>
         </VStack>
       </Center>
