@@ -14,7 +14,7 @@ export const Navigation = () => {
     >
       <nav>
         <NavLink to="/">
-          <Box display="flex" mt="2" alignItems="center" gap="10px">
+          <Box display="flex" mt="2" alignItems="center" gap="10px" paddingLeft="10px">
             <PhonebookLogo />
             <Heading as="h1"
             fontWeight="600"

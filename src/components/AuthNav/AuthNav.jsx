@@ -3,7 +3,7 @@ import { Box, Button } from '@chakra-ui/react';
 
 export const AuthNav = () => {
   return (
-    <Box>
+    <Box paddingRight="10px">
       <NavLink to="/login">
         <Button
           type="submit"
