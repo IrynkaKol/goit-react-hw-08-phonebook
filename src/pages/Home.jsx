@@ -7,8 +7,9 @@ export default function Home() {
       backgroundImage="url(https://st3.depositphotos.com/16122460/36330/i/600/depositphotos_363308862-stock-photo-magic-light-emanating-open-old.jpg)"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
-      width="100%"
-      backgroundSize="cover"
+      backgroundSize="100%"
+      
+        
     >
       <Center>
         <VStack>
