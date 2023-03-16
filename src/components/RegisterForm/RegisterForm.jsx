@@ -52,7 +52,7 @@ export const RegisterForm = () => {
             bg="#f6f8fa"
             variant="outline"
             borderColor="#d8dee4"
-            maxW="385px"
+            minW="385px"
           >
             <CardBody>
               <form onSubmit={handleSubmit} autoComplete="off">
