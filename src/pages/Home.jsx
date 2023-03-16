@@ -19,8 +19,8 @@ export default function Home() {
             position="absolute"
             textAlign="center"
             left="50%"
-            top="50%"
-            transform="translate(-50%, -100%)"
+            top="25%"
+            transform="translate(-50%, -90%)"
           >
             Create your own Phonebook
           </Heading>
