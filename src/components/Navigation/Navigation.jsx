@@ -26,7 +26,11 @@ export const Navigation = () => {
             >Phonebook</Heading>
           </Box>
         </NavLink>
-        {isLoggedIn && <NavLink style={{color: 'blue'}} to="/contacts">Contacts</NavLink>}
+        {isLoggedIn && 
+        <Box>
+        <NavLink style={{color: 'blue', paddingLeft: "10px", fontWeight:"600" }} to="/contacts">Contacts</NavLink>
+        </Box>}
+        
       </nav>
     </Flex>
   );
