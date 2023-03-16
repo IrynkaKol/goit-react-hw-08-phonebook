@@ -4,11 +4,15 @@ export default function Home() {
   return (
     <Box
       minHeight="100vh"
-      backgroundImage="url(https://st3.depositphotos.com/16122460/36330/i/600/depositphotos_363308862-stock-photo-magic-light-emanating-open-old.jpg)"
+      backgroundImage="url(https://st2.depositphotos.com/2632879/9628/i/600/depositphotos_96289540-stock-photo-fairy-tale-book.jpg)"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="100%"
       
+       width="100%"
+        height="100%"
+
+  
         
     >
       <Center>
