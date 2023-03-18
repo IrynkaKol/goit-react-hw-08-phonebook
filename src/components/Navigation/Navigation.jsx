@@ -2,6 +2,22 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
 import { PhonebookLogo } from 'phonebook-logo';
 import { Flex, Box, Heading } from '@chakra-ui/react';
+import styled from '@emotion/styled';
+
+
+
+
+
+const StyledLink = styled(NavLink)`
+color: blue;
+ padding-left: 50px;
+  font-weight:600;
+&:hover, &:focus {
+  
+  color: #8a2be2;
+}
+
+`
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
@@ -28,7 +44,7 @@ export const Navigation = () => {
         </NavLink>
         {isLoggedIn && 
         <Box>
-        <NavLink style={{color: 'blue', paddingLeft: "10px", fontWeight:"600" }} to="/contacts">Contacts</NavLink>
+        <StyledLink  to="/contacts">Contacts</StyledLink>
         </Box>}
         
       </nav>
